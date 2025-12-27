@@ -55,7 +55,61 @@ After successful installation please remove or rename your install directory for
 ### 4. Logging In For the First Time
 
 Open a browser and enter the URL for the web server directory where FrontAccounting is installed. Enter the user name  **admin** and use password declared during install process to login as company administrator. Now you can proceed with configuration process setting up additional user accounts, creating fiscal years, defining additional currencies, GL accounts etc. All configuration options available in application are described in [FrontAccounting Wiki](http://frontaccounting.com/fawiki/) available directly from Help links on every application page under ![Help](./themes/default/images/help.gif  "Help") icon.
- 
+
+## Themes
+
+This fork includes custom themes to enhance the FrontAccounting user experience.
+
+### TailAdmin Theme
+
+A modern, responsive theme based on [TailAdmin](https://tailadmin.com/) design system, featuring:
+
+- 🎨 **Modern Design** - Clean, professional UI
+- 🌙 **Dark Mode** - Full dark mode support with smooth transitions
+- 📱 **Responsive** - Mobile-friendly sidebar and layout
+- ⚡ **Alpine.js** - Lightweight interactivity for menus and toggles
+- 🎨 **Tailwind CSS** - Utility-first CSS framework
+- 🎯 **Heroicons** - Beautiful SVG icons throughout
+
+#### Installation
+
+The TailAdmin theme is already included in this repository. To activate it:
+
+1. Log in to FrontAccounting as administrator
+2. Go to **Setup** → **User Preferences** or **Company Setup**
+3. Select **tailadmin** from the Theme dropdown
+4. Save changes
+
+For detailed installation instructions and login page configuration, see the [TailAdmin Theme README](./themes/tailadmin/README.md).
+
+#### Screenshots
+
+<div align="center">
+  <img src="./themes/tailadmin/screenshots/sales.png" alt="Sales Module" width="800"/>
+  <p><em>Sales Module with Quick Links</em></p>
+</div>
+
+<div align="center">
+  <img src="./themes/tailadmin/screenshots/purchases.png" alt="Purchases Module" width="800"/>
+  <p><em>Purchases Module Page</em></p>
+</div>
+
+<div align="center">
+  <img src="./themes/tailadmin/screenshots/inventory.png" alt="Inventory Module" width="800"/>
+  <p><em>Inventory Module Page</em></p>
+</div>
+
+<div align="center">
+  <img src="./themes/tailadmin/screenshots/sales_orders.png" alt="Sales Orders" width="800"/>
+  <p><em>Sales Orders List</em></p>
+</div>
+
+<div align="center">
+  <img src="./themes/tailadmin/screenshots/login.png" alt="Login Page" width="800"/>
+  <p><em>Styled Login Page</em></p>
+</div>
+
+For more screenshots and details, visit the [TailAdmin Theme README](./themes/tailadmin/README.md).
 
 ## Troubleshooting
 
