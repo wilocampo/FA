@@ -1,0 +1,683 @@
+/* AdminLTE 4 Theme for FrontAccounting
+ * Custom CSS overrides and FrontAccounting-specific styling
+ * AdminLTE 4 uses Bootstrap 5
+ */
+
+/* ===== Base Styles ===== */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Remove default form margins */
+form {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Ensure no extra space at top */
+#js1, form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Center elements - proper button alignment */
+center {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+}
+
+/* ===== Buttons ===== */
+/* Override FrontAccounting default button styles with AdminLTE 4 / Bootstrap 5 buttons */
+
+/* Base button styles */
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button,
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border-radius: 0.375rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    min-height: 38px;
+}
+
+/* Primary buttons (blue) - Default for buttons with text */
+button.ajaxsubmit,
+button.inputsubmit,
+button[value*="Search"],
+button[value*="Select"] {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #fff;
+}
+
+button.ajaxsubmit:hover,
+button.inputsubmit:hover,
+button[value*="Search"]:hover,
+button[value*="Select"]:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+/* Success buttons (green) - Add, Update, Save, Process, Place, Submit, Confirm, Create, Enter, Post */
+button[value*="Add"],
+button[value*="Update"],
+button[value*="Save"],
+button[value*="Process"],
+button[value*="Submit"],
+button[value*="Confirm"],
+button[value*="Enter"],
+button[value*="Create"],
+button[value*="Post"],
+button[value*="Place"] {
+    background-color: #198754 !important;
+    border-color: #198754 !important;
+    color: #fff !important;
+}
+
+button[value*="Add"]:hover,
+button[value*="Update"]:hover,
+button[value*="Save"]:hover,
+button[value*="Process"]:hover,
+button[value*="Submit"]:hover,
+button[value*="Confirm"]:hover,
+button[value*="Enter"]:hover,
+button[value*="Create"]:hover,
+button[value*="Post"]:hover,
+button[value*="Place"]:hover {
+    background-color: #157347 !important;
+    border-color: #146c43 !important;
+}
+
+/* Danger buttons (red) - Delete, Remove */
+button[value*="Delete"],
+button[value*="Remove"] {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: #fff !important;
+}
+
+button[value*="Delete"]:hover,
+button[value*="Remove"]:hover {
+    background-color: #bb2d3b !important;
+    border-color: #b02a37 !important;
+}
+
+/* Secondary buttons (gray) - Cancel, Cancel Order */
+button[value*="Cancel Order"],
+button[value*="Cancel"] {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    color: #fff !important;
+}
+
+button[value*="Cancel Order"]:hover,
+button[value*="Cancel"]:hover {
+    background-color: #5c636a !important;
+    border-color: #565e64 !important;
+}
+
+/* Icon-only buttons (edit, delete, etc.) - keep small and neutral */
+.editbutton,
+.navibutton,
+.ajaxbutton {
+    padding: 0.375rem !important;
+    background-color: #fff !important;
+    border: 1px solid #dee2e6 !important;
+    color: #495057 !important;
+    min-width: auto !important;
+    min-height: auto !important;
+}
+
+.editbutton:hover,
+.navibutton:hover,
+.ajaxbutton:hover {
+    background-color: #e9ecef !important;
+    border-color: #adb5bd !important;
+}
+
+/* Hide images on text buttons, keep them on icon buttons */
+button.ajaxsubmit img,
+button.inputsubmit img {
+    display: none !important;
+}
+
+.editbutton img,
+button.editbutton img,
+a.editbutton img {
+    display: inline-block !important;
+    width: 16px !important;
+    height: 16px !important;
+    vertical-align: middle;
+}
+
+/* Add Bootstrap Icons to buttons via CSS ::before */
+/* Add buttons get a plus icon */
+button[value*="Add"]::before {
+    content: "\f4fe"; /* bi-plus */
+    font-family: "bootstrap-icons";
+    font-weight: 400;
+    margin-right: 0.375rem;
+}
+
+/* Update/Save buttons get a save icon */
+button[value*="Update"]::before,
+button[value*="Save"]::before {
+    content: "\f1c3"; /* bi-save */
+    font-family: "bootstrap-icons";
+    font-weight: 400;
+    margin-right: 0.375rem;
+}
+
+/* Place/Process/Submit/Confirm/Post/Create/Enter buttons get a checkmark icon */
+button[value*="Place"]::before,
+button[value*="Process"]::before,
+button[value*="Submit"]::before,
+button[value*="Confirm"]::before,
+button[value*="Post"]::before,
+button[value*="Create"]::before,
+button[value*="Enter"]::before {
+    content: "\f26b"; /* bi-check */
+    font-family: "bootstrap-icons";
+    font-weight: 400;
+    margin-right: 0.375rem;
+}
+
+/* Cancel buttons get an X icon */
+button[value*="Cancel"]::before {
+    content: "\f659"; /* bi-x */
+    font-family: "bootstrap-icons";
+    font-weight: 400;
+    margin-right: 0.375rem;
+}
+
+/* Delete buttons get a trash icon */
+button[value*="Delete"]::before,
+button[value*="Remove"]::before {
+    content: "\f5de"; /* bi-trash */
+    font-family: "bootstrap-icons";
+    font-weight: 400;
+    margin-right: 0.375rem;
+}
+
+/* Search buttons get a magnifying glass icon */
+button[value="Search"]::before,
+button[value*="Search"]::before {
+    content: "\f52a"; /* bi-search */
+    font-family: "bootstrap-icons";
+    font-weight: 400;
+    margin-right: 0.375rem;
+}
+
+/* ===== Forms ===== */
+/* FrontAccounting form inputs with AdminLTE 4 / Bootstrap 5 styling */
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+input.small {
+    width: 50px;
+}
+
+input.big {
+    width: 100px;
+}
+
+/* Textarea specific padding */
+textarea {
+    padding: 0.75rem 1rem !important;
+}
+
+/* Datepicker with icon inside */
+.datepicker {
+    position: relative;
+}
+
+.datepicker input {
+    padding-right: 3rem;
+}
+
+.datepicker a {
+    position: absolute;
+    right: 12px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.datepicker a:hover {
+    color: #495057;
+}
+
+.datepicker a i {
+    font-size: 1rem;
+}
+
+/* ===== Alerts ===== */
+/* FrontAccounting alert messages styled as AdminLTE 4 / Bootstrap 5 alerts */
+.err_msg,
+.warn_msg,
+.note_msg,
+.success_msg {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+    position: relative;
+    padding-left: 3rem;
+}
+
+.err_msg {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
+
+.err_msg::before {
+    content: "\f33e"; /* bi-exclamation-circle */
+    font-family: "bootstrap-icons";
+    font-weight: 400;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+}
+
+.warn_msg {
+    color: #664d03;
+    background-color: #fff3cd;
+    border-color: #ffecb5;
+}
+
+.warn_msg::before {
+    content: "\f33f"; /* bi-exclamation-triangle */
+    font-family: "bootstrap-icons";
+    font-weight: 400;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+}
+
+.note_msg {
+    color: #084298;
+    background-color: #cfe2ff;
+    border-color: #b6d4fe;
+}
+
+.note_msg::before {
+    content: "\f431"; /* bi-info-circle */
+    font-family: "bootstrap-icons";
+    font-weight: 400;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+}
+
+.success_msg {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+}
+
+.success_msg::before {
+    content: "\f26b"; /* bi-check-circle */
+    font-family: "bootstrap-icons";
+    font-weight: 400;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+}
+
+/* ===== Tables ===== */
+/* AdminLTE 4 / Bootstrap 5 table styling */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    background-color: transparent;
+}
+
+.table td,
+.table th {
+    padding: 0.5rem 0.5rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    background-color: #f8f9fa;
+}
+
+.table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Dark mode table support (Bootstrap 5 dark mode) */
+[data-bs-theme="dark"] .table {
+    color: #fff;
+}
+
+[data-bs-theme="dark"] .table td,
+[data-bs-theme="dark"] .table th {
+    border-top-color: #495057;
+}
+
+[data-bs-theme="dark"] .table thead th {
+    border-bottom-color: #495057;
+    background-color: #343a40;
+}
+
+[data-bs-theme="dark"] .table tbody tr:hover {
+    background-color: #495057;
+}
+
+/* ===== Module Card Links ===== */
+/* Remove text decoration from links in module cards */
+.card-body a,
+.space-y-2 a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+.card-body a:hover,
+.space-y-2 a:hover {
+    text-decoration: underline !important;
+    color: #0d6efd;
+}
+
+/* ===== Hide Calendar Iframe ===== */
+/* Hide the calendar iframe that appears at the top */
+#CCIframe,
+#CC {
+    display: none !important;
+}
+
+/* ===== Login Page Styling (AdminLTE 4 login style) ===== */
+/* Based on AdminLTE 4 login design */
+#loginscreen {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Login box container */
+#loginscreen > div:first-child {
+    width: 100%;
+    max-width: 360px;
+}
+
+#loginscreen .login {
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+#loginscreen .login table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+#loginscreen .login td {
+    padding: 0.75rem 0;
+    border: none;
+}
+
+/* Title text styling */
+#loginscreen .titletext {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    font-weight: 300;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#loginscreen .titletext table {
+    margin: 0 auto;
+}
+
+#loginscreen .titletext td {
+    padding: 0;
+}
+
+#loginscreen .titletext:hover {
+    color: #fff;
+}
+
+/* Logo image */
+#loginscreen .login img {
+    display: block;
+    margin: 0 auto 1.5rem;
+    max-height: 60px;
+}
+
+/* Form labels */
+#loginscreen .login td.label {
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+    color: #495057;
+}
+
+/* Input fields */
+#loginscreen input[type="text"],
+#loginscreen input[type="password"],
+#loginscreen select {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#loginscreen input[type="text"]:focus,
+#loginscreen input[type="password"]:focus,
+#loginscreen select:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Login button - AdminLTE 4 primary blue */
+#loginscreen input[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #198754;
+    border-color: #198754;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.15s ease-in-out;
+}
+
+#loginscreen input[type="submit"]:hover {
+    background-color: #157347;
+    border-color: #146c43;
+}
+
+#loginscreen input[type="submit"]:focus {
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.5);
+}
+
+/* Footer */
+#loginscreen .footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+}
+
+#loginscreen .footer a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+}
+
+#loginscreen .footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Bottom bar */
+#loginscreen .bottomBar {
+    text-align: center;
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+}
+
+#loginscreen .bottomBar a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+}
+
+#loginscreen .bottomBar a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Dark mode support for login page */
+[data-bs-theme="dark"] #loginscreen .login {
+    background-color: #212529;
+    color: #fff;
+}
+
+[data-bs-theme="dark"] #loginscreen .login td.label {
+    color: #adb5bd;
+}
+
+[data-bs-theme="dark"] #loginscreen input[type="text"],
+[data-bs-theme="dark"] #loginscreen input[type="password"],
+[data-bs-theme="dark"] #loginscreen select {
+    background-color: #495057;
+    border-color: #6c757d;
+    color: #fff;
+}
+
+[data-bs-theme="dark"] #loginscreen input[type="text"]:focus,
+[data-bs-theme="dark"] #loginscreen input[type="password"]:focus,
+[data-bs-theme="dark"] #loginscreen select:focus {
+    background-color: #495057;
+    border-color: #86b7fe;
+    color: #fff;
+}
+
+/* ===== Additional FrontAccounting-specific overrides ===== */
+
+/* Ensure proper spacing in forms */
+table.tablestyle {
+    margin-bottom: 1rem;
+}
+
+/* Module headers in sidebar */
+.nav-header {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #6c757d;
+    padding: 0.5rem 1rem 0.25rem;
+    margin-top: 0.5rem;
+}
+
+[data-bs-theme="dark"] .nav-header {
+    color: #adb5bd;
+}
+
+/* Active menu item styling */
+.sidebar-menu .nav-item.menu-open > .nav-link {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: #0d6efd;
+}
+
+[data-bs-theme="dark"] .sidebar-menu .nav-item.menu-open > .nav-link {
+    background-color: rgba(13, 110, 253, 0.2);
+    color: #86b7fe;
+}
+
+.sidebar-menu .nav-link.active {
+    background-color: rgba(13, 110, 253, 0.15);
+    color: #0d6efd;
+    font-weight: 600;
+}
+
+[data-bs-theme="dark"] .sidebar-menu .nav-link.active {
+    background-color: rgba(13, 110, 253, 0.25);
+    color: #86b7fe;
+}
+
+/* Fix icon alignment in sidebar */
+.sidebar-menu .nav-icon {
+    width: 1.25rem;
+    text-align: center;
+    margin-right: 0.5rem;
+}

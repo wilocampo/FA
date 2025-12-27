@@ -1,0 +1,707 @@
+/* AdminLTE 3.2 Theme for FrontAccounting
+ * Custom CSS overrides and FrontAccounting-specific styling
+ */
+
+/* Fix Font Awesome webfonts path */
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url("../vendor/fontawesome/webfonts/fa-solid-900.woff2") format("woff2"),
+         url("../vendor/fontawesome/webfonts/fa-solid-900.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../vendor/fontawesome/webfonts/fa-regular-400.woff2") format("woff2"),
+         url("../vendor/fontawesome/webfonts/fa-regular-400.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Brands';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../vendor/fontawesome/webfonts/fa-brands-400.woff2") format("woff2"),
+         url("../vendor/fontawesome/webfonts/fa-brands-400.woff") format("woff");
+}
+
+/* ===== Base Styles ===== */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Remove default form margins */
+form {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Ensure no extra space at top */
+#js1, form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Center elements - proper button alignment */
+center {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+}
+
+/* ===== Buttons ===== */
+/* Override FrontAccounting default button styles with AdminLTE buttons */
+
+/* Base button styles */
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button,
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    min-height: 38px;
+}
+
+/* Primary buttons (blue) - Default for buttons with text */
+button.ajaxsubmit,
+button.inputsubmit,
+button[value*="Search"],
+button[value*="Select"] {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+button.ajaxsubmit:hover,
+button.inputsubmit:hover,
+button[value*="Search"]:hover,
+button[value*="Select"]:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Success buttons (green) - Add, Update, Save, Process, Place, Submit, Confirm, Create, Enter, Post */
+button[value*="Add"],
+button[value*="Update"],
+button[value*="Save"],
+button[value*="Process"],
+button[value*="Submit"],
+button[value*="Confirm"],
+button[value*="Enter"],
+button[value*="Create"],
+button[value*="Post"],
+button[value*="Place"] {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: #fff !important;
+}
+
+button[value*="Add"]:hover,
+button[value*="Update"]:hover,
+button[value*="Save"]:hover,
+button[value*="Process"]:hover,
+button[value*="Submit"]:hover,
+button[value*="Confirm"]:hover,
+button[value*="Enter"]:hover,
+button[value*="Create"]:hover,
+button[value*="Post"]:hover,
+button[value*="Place"]:hover {
+    background-color: #218838 !important;
+    border-color: #1e7e34 !important;
+}
+
+/* Danger buttons (red) - Delete, Remove */
+button[value*="Delete"],
+button[value*="Remove"] {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: #fff !important;
+}
+
+button[value*="Delete"]:hover,
+button[value*="Remove"]:hover {
+    background-color: #c82333 !important;
+    border-color: #bd2130 !important;
+}
+
+/* Secondary buttons (gray) - Cancel, Cancel Order */
+button[value*="Cancel Order"],
+button[value*="Cancel"] {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    color: #fff !important;
+}
+
+button[value*="Cancel Order"]:hover,
+button[value*="Cancel"]:hover {
+    background-color: #5a6268 !important;
+    border-color: #545b62 !important;
+}
+
+/* Icon-only buttons (edit, delete, etc.) - keep small and neutral */
+.editbutton,
+.navibutton,
+.ajaxbutton {
+    padding: 0.375rem !important;
+    background-color: #fff !important;
+    border: 1px solid #dee2e6 !important;
+    color: #495057 !important;
+    min-width: auto !important;
+    min-height: auto !important;
+}
+
+.editbutton:hover,
+.navibutton:hover,
+.ajaxbutton:hover {
+    background-color: #e9ecef !important;
+    border-color: #adb5bd !important;
+}
+
+/* Hide images on text buttons, keep them on icon buttons */
+button.ajaxsubmit img,
+button.inputsubmit img {
+    display: none !important;
+}
+
+.editbutton img,
+button.editbutton img,
+a.editbutton img {
+    display: inline-block !important;
+    width: 16px !important;
+    height: 16px !important;
+    vertical-align: middle;
+}
+
+/* Add Font Awesome icons to buttons via CSS ::before */
+/* Add buttons get a plus icon */
+button[value*="Add"]::before {
+    content: "\f067"; /* fa-plus */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 0.375rem;
+}
+
+/* Update/Save buttons get a save icon */
+button[value*="Update"]::before,
+button[value*="Save"]::before {
+    content: "\f0c7"; /* fa-save */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 0.375rem;
+}
+
+/* Place/Process/Submit/Confirm/Post/Create/Enter buttons get a checkmark icon */
+button[value*="Place"]::before,
+button[value*="Process"]::before,
+button[value*="Submit"]::before,
+button[value*="Confirm"]::before,
+button[value*="Post"]::before,
+button[value*="Create"]::before,
+button[value*="Enter"]::before {
+    content: "\f00c"; /* fa-check */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 0.375rem;
+}
+
+/* Cancel buttons get an X icon */
+button[value*="Cancel"]::before {
+    content: "\f00d"; /* fa-times */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 0.375rem;
+}
+
+/* Delete buttons get a trash icon */
+button[value*="Delete"]::before,
+button[value*="Remove"]::before {
+    content: "\f2ed"; /* fa-trash */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 0.375rem;
+}
+
+/* Search buttons get a magnifying glass icon */
+button[value="Search"]::before,
+button[value*="Search"]::before {
+    content: "\f002"; /* fa-search */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 0.375rem;
+}
+
+/* ===== Forms ===== */
+/* FrontAccounting form inputs with AdminLTE styling */
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+input.small {
+    width: 50px;
+}
+
+input.big {
+    width: 100px;
+}
+
+/* Textarea specific padding */
+textarea {
+    padding: 0.75rem 1rem !important;
+}
+
+/* Datepicker with icon inside */
+.datepicker {
+    position: relative;
+}
+
+.datepicker input {
+    padding-right: 3rem;
+}
+
+.datepicker a {
+    position: absolute;
+    right: 12px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.datepicker a:hover {
+    color: #495057;
+}
+
+.datepicker a i {
+    font-size: 1rem;
+}
+
+/* ===== Alerts ===== */
+/* FrontAccounting alert messages styled as AdminLTE alerts */
+.err_msg,
+.warn_msg,
+.note_msg,
+.success_msg {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    position: relative;
+    padding-left: 3rem;
+}
+
+.err_msg {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.err_msg::before {
+    content: "\f06a"; /* fa-exclamation-circle */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+}
+
+.warn_msg {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+}
+
+.warn_msg::before {
+    content: "\f071"; /* fa-exclamation-triangle */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+}
+
+.note_msg {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+
+.note_msg::before {
+    content: "\f05a"; /* fa-info-circle */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+}
+
+.success_msg {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.success_msg::before {
+    content: "\f058"; /* fa-check-circle */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+}
+
+/* ===== Tables ===== */
+/* AdminLTE table styling */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    background-color: transparent;
+}
+
+.table td,
+.table th {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    background-color: #f8f9fa;
+}
+
+.table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Dark mode table support */
+.dark-mode .table {
+    color: #fff;
+}
+
+.dark-mode .table td,
+.dark-mode .table th {
+    border-top-color: #495057;
+}
+
+.dark-mode .table thead th {
+    border-bottom-color: #495057;
+    background-color: #343a40;
+}
+
+.dark-mode .table tbody tr:hover {
+    background-color: #495057;
+}
+
+/* ===== Module Card Links ===== */
+/* Remove text decoration from links in module cards */
+.card-body a,
+.space-y-2 a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+.card-body a:hover,
+.space-y-2 a:hover {
+    text-decoration: underline !important;
+    color: #007bff;
+}
+
+/* ===== Hide Calendar Iframe ===== */
+/* Hide the calendar iframe that appears at the top */
+#CCIframe,
+#CC {
+    display: none !important;
+}
+
+/* ===== Login Page Styling (AdminLTE 3.2 login-v2 style) ===== */
+/* Based on https://adminlte.io/themes/v3/pages/examples/login-v2.html */
+#loginscreen {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Login box container */
+#loginscreen > div:first-child {
+    width: 100%;
+    max-width: 360px;
+}
+
+#loginscreen .login {
+    background: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    padding: 1.5rem;
+    margin: 0 auto;
+}
+
+#loginscreen .login table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+#loginscreen .login td {
+    padding: 0.5rem 0;
+    border: none;
+}
+
+/* Title text styling */
+#loginscreen .titletext {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#loginscreen .titletext table {
+    margin: 0 auto;
+}
+
+#loginscreen .titletext td {
+    padding: 0;
+}
+
+#loginscreen .titletext:hover {
+    color: #fff;
+}
+
+/* Logo image */
+#loginscreen .login img {
+    display: block;
+    margin: 0 auto 1.5rem;
+    max-height: 60px;
+}
+
+/* Form labels */
+#loginscreen .login td.label {
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+    color: #495057;
+}
+
+/* Input fields */
+#loginscreen input[type="text"],
+#loginscreen input[type="password"],
+#loginscreen select {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#loginscreen input[type="text"]:focus,
+#loginscreen input[type="password"]:focus,
+#loginscreen select:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Login button - AdminLTE primary blue */
+#loginscreen input[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.15s ease-in-out;
+}
+
+#loginscreen input[type="submit"]:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+#loginscreen input[type="submit"]:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+/* Footer links */
+#loginscreen .footer,
+#loginscreen .bottomBar {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.875rem;
+}
+
+#loginscreen .footer a,
+#loginscreen .bottomBar a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+#loginscreen .footer a:hover,
+#loginscreen .bottomBar a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Table section titles (version info) */
+#loginscreen .login .tablestyle td.tablestyle_tab {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    padding: 0.75rem;
+    font-weight: 600;
+    color: #495057;
+    text-align: center;
+}
+
+/* Center alignment for form elements */
+#loginscreen .login center {
+    display: block;
+    text-align: center;
+}
+
+/* Dark mode for login page */
+.dark-mode #loginscreen {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.dark-mode #loginscreen .login {
+    background: #343a40;
+    color: #fff;
+}
+
+.dark-mode #loginscreen .login td.label {
+    color: #fff;
+}
+
+.dark-mode #loginscreen input[type="text"],
+.dark-mode #loginscreen input[type="password"],
+.dark-mode #loginscreen select {
+    background-color: #495057;
+    border-color: #6c757d;
+    color: #fff;
+}
+
+.dark-mode #loginscreen input[type="text"]:focus,
+.dark-mode #loginscreen input[type="password"]:focus,
+.dark-mode #loginscreen select:focus {
+    background-color: #495057;
+    border-color: #80bdff;
+    color: #fff;
+}
+
+/* ===== Dark Mode Overrides ===== */
+.dark-mode .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.dark-mode .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.dark-mode .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.dark-mode .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.dark-mode input[type="text"],
+.dark-mode input[type="number"],
+.dark-mode input[type="password"],
+.dark-mode input[type="email"],
+.dark-mode input[type="date"],
+.dark-mode select,
+.dark-mode textarea {
+    background-color: #343a40;
+    border-color: #495057;
+    color: #fff;
+}
+
+.dark-mode input:focus,
+.dark-mode select:focus,
+.dark-mode textarea:focus {
+    background-color: #343a40;
+    border-color: #80bdff;
+    color: #fff;
+}
