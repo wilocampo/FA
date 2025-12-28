@@ -1,0 +1,62 @@
+# FrontAccounting Configuration Files
+# These files contain sensitive information and environment-specific settings
+config.php
+config_db.php
+
+# Installation directory (should be removed after installation)
+_install/
+
+# Company data and backups
+company/*/
+!company/index.php
+company/*/backup/
+company/*/attachments/
+company/*/images/
+company/*/pdf_files/
+company/*/reports/
+company/*/js/
+company/*/installed_extensions.php
+
+# Temporary files and logs
+tmp/
+*.log
+*.tmp
+errors.log
+*.cache
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# PHP specific
+*.php~
+*.php.bak
+
+# Module cache
+modules/_cache/
+
+# User uploaded files (if any)
+uploads/
+files/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+

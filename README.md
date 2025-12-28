@@ -41,6 +41,8 @@ To use FrontAccounting application you should have already installed:
 >	# git clone `https://git.code.sf.net/p/frontaccounting/git` frontaccounting
 
 Master branch contains all the latest bugfixes made atop the last stable release.
+
+**For this fork:** After cloning, you'll need to set up configuration files. See [SETUP.md](./SETUP.md) for detailed instructions.
 	
 ### 3. Installation
 

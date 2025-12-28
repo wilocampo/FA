@@ -25,13 +25,14 @@ $tb_pref_counter = 1;
 $db_connections = array (
   0 => 
   array (
-    'name' => 'Eight Logic',
+    'name' => 'My Company',
     'host' => 'localhost',
     'port' => '',
     'dbname' => 'frontaccounting',
     'collation' => 'utf8_xx',
     'tbpref' => '0_',
-    'dbuser' => 'ninetails',
-    'dbpassword' => 'logic8Admin',
+    'dbuser' => 'your_db_user',
+    'dbpassword' => 'your_db_password',
   ),
 );
+

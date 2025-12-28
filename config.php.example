@@ -5,7 +5,7 @@
 	as published by the Free Software Foundation, either version 3 
 	of the License, or (at your option) any later version.
     This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
     See the License here <http://www.gnu.org/licenses/gpl-3.0.html>.
 ***********************************************************************/
@@ -30,7 +30,7 @@ if (!isset($path_to_root) || isset($_GET['path_to_root']) || isset($_POST['path_
 	// Special value 'syslog' can be used for system logger usage (see php manual).
 	//$error_logfile = '';
 	$error_logfile = VARLOG_PATH.'/errors.log';
-	$debug 			= 1;	// show sql on database errors
+	$debug 			= 0;	// show sql on database errors (set to 0 for production)
 
 	$show_sql 		= 0;	// show all sql queries in page footer for debugging purposes
 	$go_debug 		= 0;	// set to 1 for basic debugging, or 2 to see also backtrace after failure.
@@ -131,7 +131,7 @@ if (!isset($path_to_root) || isset($_GET['path_to_root']) || isset($_POST['path_
 	$show_menu_category_icons = 1;
 
 	/* Default theme for login page and new users */
-	$dflt_theme = 'tailadmin';
+	$dflt_theme = 'default';
 	
 	// Internal configurable variables
 	//-----------------------------------------------------------------------------------
@@ -212,3 +212,4 @@ if (!isset($path_to_root) || isset($_GET['path_to_root']) || isset($_POST['path_
 */
 	$use_popup_search = true;
 	$max_rows_in_search = 10;
+
