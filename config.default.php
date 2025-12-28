@@ -130,6 +130,9 @@ if (!isset($path_to_root) || isset($_GET['path_to_root']) || isset($_POST['path_
 	/* Show menu category icons in core themes */
 	$show_menu_category_icons = 1;
 	
+	/* Default theme for login page and new users */
+	$dflt_theme = 'tailadmin';
+	
 	// Internal configurable variables
 	//-----------------------------------------------------------------------------------
 
